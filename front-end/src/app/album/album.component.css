@@ -1,0 +1,46 @@
+.card-album {
+  margin-left: 60px;
+}
+.content-albumes {
+  margin-top: 30px;
+}
+
+.agrega-album {
+  margin-top: 17px;
+}
+
+.card-albumes {
+  margin-top: 30px;
+}
+.content-album {
+  min-height: 140px;
+}
+
+.album {
+  margin-top:0px;
+}
+
+.img-album {
+  width: 100px;
+  height: 100px;
+}
+
+.i_album_del {
+  color: #DC3D3D;
+}
+
+.i_album_can {
+  color: #088A08;
+}
+
+.alert-danger{
+  background: #DC3D3D;
+}
+.info-noti {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.requerido{
+  color: red;
+}

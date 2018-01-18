@@ -1,0 +1,23 @@
+.agrega-cancion {
+  margin-top: 17px;
+}
+.content-cancion {
+  margin-top: 20px;
+}
+
+.i_cancion_del {
+  color: #DC3D3D;
+}
+
+.info_par {
+  border-top: 1px solid #ddd;
+  background: #FAFAFA;
+}
+
+.info_cancion:hover {
+    background-color: #F2F2F2;
+}
+
+.requerido{
+	color:red;
+}

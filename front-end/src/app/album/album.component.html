@@ -1,0 +1,130 @@
+  <div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-5">
+                    <h3 class="title">Álbumes</h3>
+                </div>
+                <div class="col-md-6">
+                  <button class="btn btn-info btn-fill pull-right agrega-album"
+                          *ngIf="!agregaAlbum" type="submit"
+                          (click)="muestrarFormAlbum();">Agregar álbum</button>
+                  <button class="btn btn-info btn-fill pull-right agrega-album"
+                          *ngIf="agregaAlbum" type="submit"
+                          (click)="quitarFormAlbum();">Ver álbumes</button>
+                </div>
+                <div class="col-md-1"></div>
+              </div>
+            </div>
+           </div>
+           <div class="row card-albumes" *ngIf="agregaAlbum">
+             <div class="col-md-12">
+               <div class="col-md-7">
+                   <div class="card">
+                       <div class="header">
+                          <div class="row">
+                            <h4 class="title">Nuevo Álbum</h4>
+                          </div>
+                          <div class="row">
+                            <div class="info-noti" *ngIf="mensajeInfo">
+                               <div class="col-md-11 ">
+                                  <div class="alert alert-info">
+                                      <button class="close" aria-hidden="true" type="button"
+                                              (click)="limpiaMensaje();">×</button>
+                                      <span><b>{{mensajeInfo}} </b></span>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="info-noti" *ngIf="error">
+                               <div class="col-md-11">
+                                  <div class="alert alert-danger">
+                                    <button class="close" aria-hidden="true" type="button"
+                                            (click)="limpiaMensaje();">×</button>
+                                      <span><b>{{infoError.codigoError}} - </b> {{infoError.mensajeError}}</span>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                       </div>
+                       <div class="content">
+                           <form>
+                               <div class="row">
+                                   <div class="col-md-11">
+                                       <div class="form-group">
+                                           <label>Nombre</label> <label class="requerido">*</label>
+                                           <input type="text" class="form-control" maxlength="50" [(ngModel)]="album.nombre" name="nombre" >
+                                       </div>
+                                   </div>
+                               </div>
+                               <button type="submit" class="btn btn-info btn-fill pull-right"
+                                        (click)="agregarALbum(album)">Guardar</button>
+                               <div class="clearfix"></div>
+                           </form>
+                       </div>
+                   </div>
+               </div>
+             </div>
+         </div>
+          <div class="card card-albumes" *ngIf="!agregaAlbum">
+                    <div class="content all-icons">
+                      <div class="row content-albumes" *ngIf="mensajeExito">
+                         <div class="col-md-8 ">
+                            <div class="alert alert-success">
+                                <button class="close" aria-hidden="true" type="button"
+                                        (click)="limpiaMensaje();">×</button>
+                                <span><b>{{mensajeExito}} </b></span>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row content-albumes" *ngIf="mensajeInfo">
+                         <div class="col-md-8 ">
+                            <div class="alert alert-info">
+                                <button class="close" aria-hidden="true" type="button"
+                                        (click)="limpiaMensaje();">×</button>
+                                <span><b>{{mensajeInfo}} </b></span>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row content-albumes" *ngIf="error">
+                         <div class="col-md-8 ">
+                            <div class="alert alert-danger">
+                              <button class="close" aria-hidden="true" type="button"
+                                      (click)="limpiaMensaje();">×</button>
+                                <span><b>{{infoError.codigoError}} - </b> {{infoError.mensajeError}}</span>
+                            </div>
+                          </div>
+                      </div>
+                        <div class="row content-albumes">
+                        <div *ngIf="albumes == 0">
+                          <div class="col-md-1"></div>
+                          <div class="col-md-3">
+                              <label>No hay álbumes registrados</label>
+                          </div>
+                        </div>
+
+                          <div class="card card-user card-album col-md-3" *ngFor="let albumItem of albumes" >
+
+                              <div class="content content-album" >
+                                  <div class="author album" >
+                                      <a>
+                                          <img class="avatar  img-album" src="assets/img/disco.jpeg" />
+
+                                          <h5 class="title" title="{{albumItem.nombre}}">{{albumItem.nombre | slice:0:20}}
+                                          </h5>
+                                      </a>
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="text-center">
+                                  <button href="#" class="btn btn-simple" (click)="mostrarCancionesAlbum(albumItem)">
+                                    <i class="fa fa-music i_album_can" aria-hidden="true"></i>Canciones</button>
+                                  <button href="#" class="btn btn-simple"  (click)="eliminarALbum(albumItem)">
+                                    <i class="fa fa-times i_album_del" aria-hidden="true"></i>Borrar</button>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+          </div>
+  </div>

@@ -1,0 +1,6 @@
+server: 
+  contextPath: /examen-opi
+  port: 19000
+  
+albumes.archivo.url: /home/sara/examen-opi/data/albumesInfo.json
+album.canciones.archivo.url: /home/sara/examen-opi/data/canciones/
